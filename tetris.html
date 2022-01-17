@@ -1,0 +1,818 @@
+<!-- My scene -->
+<canvas id="myCanvas"></canvas>
+
+<script src="lib/three.min.js"></script>
+	<script src="lib/OrbitControls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+
+<script>
+
+//Get the height and the width of the window
+var ww = window.innerWidth, //size of browser{w,h}
+	wh = window.innerHeight;
+
+function init(){
+
+	/* WEBGL RENDERER */
+	renderer = new THREE.WebGLRenderer({canvas : document.getElementById('myCanvas')});//scene to 2d image 3ala canvas dah
+	renderer.setClearColor(0xffffff );//white
+	renderer.setSize(ww,wh); //size canvas=size browser//fullscene
+
+	/* SCENE */
+	scene = new THREE.Scene(); //maynfa3sh yeshtaghal mn gher ligth wa camera
+
+	/* CAMERA */
+	camera = new THREE.PerspectiveCamera(45, ww/wh, 0.1, 10000 );
+	camera.position.set(0, 4, -10);
+	camera.lookAt(new THREE.Vector3(0,4,0));
+	scene.add(camera);
+
+
+
+	/* LIGHT */
+	/*light = new THREE.DirectionalLight(0xffffff, 1);
+	light.position.set( 0, 0, -30 );
+	scene.add(light);*/
+	 light = new THREE.PointLight( 0xffffff, 1 ,100 );
+     light.position.set( 0, 0, -30 );
+    scene.add( light );
+
+	//Create all our shapes
+	createShapes();
+	resizeCube();
+
+	//Render the scene
+	renderer.render(scene,camera);
+
+};
+
+elements= new THREE.Object3D();
+
+elements1= new THREE.Object3D();
+elements2= new THREE.Object3D();
+elements3= new THREE.Object3D();
+elements4= new THREE.Object3D();
+elements5= new THREE.Object3D();
+elements6= new THREE.Object3D();
+elements7= new THREE.Object3D();
+function createShapes(){
+
+	mat1 = new THREE.MeshLambertMaterial({color:0x00ff00, wireframe: false});//texture //material
+  geometryBox = new THREE.BoxGeometry(2.35,2.35,2.5);//geometry
+
+  box = new THREE.Mesh(geometryBox, mat1);//bahotohom fel 3d mesh
+  box.position.y=3.6;
+	box.position.z=0;
+	box.position.x=-2.3;
+  scene.add(box);
+
+  box2 = new THREE.Mesh(geometryBox, mat1);
+  box2.position.y=5.9;
+	box2.position.z=0;
+  scene.add(box2);
+
+  box3 = new THREE.Mesh(geometryBox, mat1);
+  box3.position.y=1.3;
+	box3.position.z=0;
+  scene.add(box3);
+
+  box4 = new THREE.Mesh(geometryBox, mat1);
+  box4.position.y=3.6;
+	box4.position.z=0;
+  scene.add(box4);
+
+
+  box5 = new THREE.Mesh(geometryBox, mat1);
+  box5.position.y=5.9;
+	box5.position.z=0;
+  scene.add(box5);
+
+  box6 = new THREE.Mesh(geometryBox, mat1);
+  box6.position.y=1.3;
+  box6.position.z=0;
+  scene.add(box6);
+
+  box7 = new THREE.Mesh(geometryBox, mat1);
+  box7.position.y=3.6;
+	box7.position.z=0;
+  scene.add(box7);
+
+  box8 = new THREE.Mesh(geometryBox, mat1);//bahotohom fel 3d mesh
+  box8.position.y=3.6;
+	box8.position.z=0;
+	box8.position.x=2.3;
+  scene.add(box8);
+
+  box9 = new THREE.Mesh(geometryBox, mat1);
+  box9.position.y=5.9;
+	box9.position.z=0;
+  scene.add(box9);
+
+  box10 = new THREE.Mesh(geometryBox, mat1);
+  box10.position.y=1.3;
+	box10.position.z=0;
+  scene.add(box10);
+
+  box11 = new THREE.Mesh(geometryBox, mat1);
+  box11.position.y=3.6;
+	box11.position.z=0;
+  scene.add(box11);
+
+  box12 = new THREE.Mesh(geometryBox, mat1);//bahotohom fel 3d mesh
+  box12.position.y=5.9;
+	box12.position.z=0;
+	box12.position.x=2.3;
+  scene.add(box12);
+
+  box13 = new THREE.Mesh(geometryBox, mat1);
+  box13.position.y=5.9;
+	box13.position.z=0;
+	box13.position.x=0;
+  scene.add(box13);
+
+  box14 = new THREE.Mesh(geometryBox, mat1);
+  box14.position.y=3.6;
+	box14.position.z=0;
+	box14.position.x=2.3;
+  scene.add(box14);
+
+  box15 = new THREE.Mesh(geometryBox, mat1);
+  box15.position.y=3.6;
+	box15.position.z=0;
+	box15.position.x=0;
+  scene.add(box15);
+
+	box16 = new THREE.Mesh(geometryBox, mat1);
+	box16.position.y=5.9;
+	box16.position.z=0;
+	scene.add(box16);
+
+	box17 = new THREE.Mesh(geometryBox, mat1);
+	box17.position.y=1.3;
+	box17.position.z=0;
+	scene.add(box17);
+
+	box18 = new THREE.Mesh(geometryBox, mat1);
+	box18.position.y=3.6;
+	box18.position.z=0;
+	scene.add(box18);
+
+	box19 = new THREE.Mesh(geometryBox, mat1);
+	box19.position.y=5.9;
+	box19.position.x=2.3
+	box19.position.z=0;
+	scene.add(box19);
+
+	box20 = new THREE.Mesh(geometryBox, mat1);//bahotohom fel 3d mesh
+  box20.position.y=3.6;
+	box20.position.z=0;
+	box20.position.x=-2.3;
+  scene.add(box20);
+
+  box21 = new THREE.Mesh(geometryBox, mat1);
+  box21.position.y=5.9;
+	box21.position.z=0;
+  scene.add(box21);
+
+  box22 = new THREE.Mesh(geometryBox, mat1);
+  box22.position.y=1.3;
+	box22.position.z=0;
+  scene.add(box22);
+
+  box23 = new THREE.Mesh(geometryBox, mat1);
+  box23.position.y=3.6;
+	box23.position.z=0;
+  scene.add(box23);
+
+
+	mat2 = new THREE.MeshLambertMaterial({color:0xff0000, wireframe: false});//texture //material
+  geometryBox2 = new THREE.BoxGeometry(2.35,2.35,2.5);//geometry
+
+
+  rbox = new THREE.Mesh(geometryBox2, mat2);//bahotohom fel 3d mesh
+  rbox.position.y=3.6;
+	rbox.position.z=0;
+	rbox.position.x=-2.3;
+  scene.add(rbox);
+
+  rbox2 = new THREE.Mesh(geometryBox2, mat2);
+  rbox2.position.y=5.9;
+	rbox2.position.z=0;
+  scene.add(rbox2);
+
+  rbox3 = new THREE.Mesh(geometryBox2, mat2);
+  rbox3.position.y=1.3;
+	rbox3.position.z=0;
+  scene.add(rbox3);
+
+  rbox4 = new THREE.Mesh(geometryBox2, mat2);
+  rbox4.position.y=3.6;
+	rbox4.position.z=0;
+  scene.add(rbox4);
+
+
+rbox5 = new THREE.Mesh(geometryBox2, mat2);
+  rbox5.position.y=5.9;
+	rbox5.position.z=0;
+  scene.add(rbox5);
+
+  rbox6 = new THREE.Mesh(geometryBox2, mat2);
+  rbox6.position.y=1.3;
+  rbox6.position.z=0;
+  rbox6.position.x=-2.3;
+  scene.add(rbox6);
+
+  rbox7 = new THREE.Mesh(geometryBox2, mat2);
+  rbox7.position.y=3.6;
+	rbox7.position.z=0;
+  scene.add(rbox7);
+
+  rbox8 = new THREE.Mesh(geometryBox2, mat2);//bahotohom fel 3d mesh
+  rbox8.position.y=3.6;
+	rbox8.position.z=0;
+	rbox8.position.x=-2.3;
+  scene.add(rbox8);
+
+  rbox9 = new THREE.Mesh(geometryBox2, mat2);
+  rbox9.position.y=5.9;
+	rbox9.position.z=0;
+	rbox9.position.x=-2.3;
+  scene.add(rbox9);
+
+  rbox10 = new THREE.Mesh(geometryBox2, mat2);
+  rbox10.position.y=1.3;
+	rbox10.position.z=0;
+  scene.add(rbox10);
+
+  rbox11 = new THREE.Mesh(geometryBox2, mat2);
+  rbox11.position.y=3.6;
+	rbox11.position.z=0;
+	rbox11.position.x=-2.3;
+  scene.add(rbox11);
+
+  //add objects to element
+ elements.add(box);
+ elements.add(box2);
+ elements.add(box3);
+ elements.add(box4);
+ scene.add(elements);
+
+ elements1.add(box5);
+ elements1.add(box6);
+ elements1.add(box7);
+ //scene.add(elements1);
+
+ elements2.add(box8);
+ elements2.add(box9);
+ elements2.add(box10);
+ elements2.add(box11);
+ //scene.add(elements2);
+
+ elements3.add(box12);
+ elements3.add(box13);
+ elements3.add(box14);
+ elements3.add(box15);
+ //scene.add(elements3);
+
+ elements4.add(box16);
+ elements4.add(box17);
+ elements4.add(box18);
+ elements4.add(box19);
+ //scene.add(elements4);
+
+ elements5.add(box20);
+ elements5.add(box21);
+ elements5.add(box22);
+ elements5.add(box23);
+ //scene.add(elements5);
+
+ elements6.add(rbox);
+ elements6.add(rbox2);
+ elements6.add(rbox3);
+ elements6.add(rbox4);
+// scene.add(elements6);
+
+ elements7.add(rbox5);
+ elements7.add(rbox6);
+ elements7.add(rbox7);
+ elements7.add(rbox8);
+ elements7.add(rbox9);
+ elements7.add(rbox10);
+ elements7.add(rbox11);
+// scene.add(elements6);
+////////////////////Planes//////////////////////////////
+
+//down
+geometryfloor = new THREE.PlaneGeometry(12,75,5,10);
+texture = new THREE.TextureLoader().load("game.jpeg");
+wall = new THREE.MeshBasicMaterial({map : texture , side:THREE.DoubleSide});
+//mat2 = new THREE.MeshBasicMaterial({color:0x00ff00, wireframe:true});
+floor1 = new THREE.Mesh(geometryfloor,wall);
+floor1.position.z =4;
+floor1.rotation.x = Math.PI / 2;
+scene.add(floor1);
+
+//up
+geometryfloor = new THREE.PlaneGeometry(12,75,5,10);
+//mat2 = new THREE.MeshBasicMaterial({color:0x00ff00, wireframe:true});
+floor2 = new THREE.Mesh(geometryfloor,wall);
+floor2.position.z =4;
+floor2.position.y =12;
+floor2.rotation.x = Math.PI / 2;
+scene.add(floor2);
+
+//front
+geometryfloor = new THREE.PlaneGeometry(12,12,5,5);
+mat2 = new THREE.MeshBasicMaterial({color:0xff0000, wireframe:true});
+floor3 = new THREE.Mesh(geometryfloor,mat2);
+floor3.position.z =41.5;
+floor3.position.y =6;
+scene.add(floor3);
+
+
+geometrywalls = new THREE.PlaneGeometry(75,12, 10,5);
+//matwall1 = new THREE.MeshBasicMaterial({color:0xff0000, wireframe:true});
+texture = new THREE.TextureLoader().load("game.jpeg");
+matwall1 = new THREE.MeshBasicMaterial({map : texture , side:THREE.DoubleSide});
+
+wall1 = new THREE.Mesh(geometrywalls,matwall1);//left wall
+wall1.position.z=4;
+wall1.position.x=6;
+wall1.position.y=6;
+wall1.rotation.y= Math.PI / 2; // Rotate the floor 90 degrees
+scene.add(wall1);
+
+wall2 = new THREE.Mesh(geometrywalls,matwall1);//right wall
+wall2.position.z =4;
+wall2.position.x=-6;
+wall2.position.y=6;
+wall2.rotation.y= Math.PI / 2; // Rotate the floor 90 degrees
+scene.add(wall2);
+};
+
+// movement
+document.addEventListener("keydown", onDocumentKeyDown, false);
+function onDocumentKeyDown(event) {
+    var keyCode = event.which;
+    boundingBox = new THREE.Box3().setFromObject(elements);
+		floorBoundingBox = new THREE.Box3().setFromObject(floor3);
+		var collision = boundingBox.intersectsBox(floorBoundingBox);
+
+
+    boundingBox1 = new THREE.Box3().setFromObject(elements1);
+		floorBoundingBox1= new THREE.Box3().setFromObject(floor3);
+    var collision1 = boundingBox1.intersectsBox(floorBoundingBox1);
+
+
+            boundingBox2 = new THREE.Box3().setFromObject(elements2);
+		       floorBoundingBox2= new THREE.Box3().setFromObject(floor3);
+            var collision2 = boundingBox2.intersectsBox(floorBoundingBox2);
+
+
+						boundingBox3 = new THREE.Box3().setFromObject(elements3);
+		       floorBoundingBox3= new THREE.Box3().setFromObject(floor3);
+            var collision3 = boundingBox3.intersectsBox(floorBoundingBox3);
+
+						boundingBox4 = new THREE.Box3().setFromObject(elements4);
+		       floorBoundingBox4= new THREE.Box3().setFromObject(floor3);
+            var collision4 = boundingBox4.intersectsBox(floorBoundingBox4);
+
+						boundingBox5 = new THREE.Box3().setFromObject(elements5);
+		       floorBoundingBox5= new THREE.Box3().setFromObject(floor3);
+            var collision5 = boundingBox5.intersectsBox(floorBoundingBox5);
+
+			boundingBox6 = new THREE.Box3().setFromObject(elements6);
+		       floorBoundingBox6= new THREE.Box3().setFromObject(elements);
+            var collision6 = boundingBox6.intersectsBox(floorBoundingBox6);
+
+
+          boundingBox7 = new THREE.Box3().setFromObject(elements7);
+		       floorBoundingBox7= new THREE.Box3().setFromObject(elements1);
+            var collision7 = boundingBox7.intersectsBox(floorBoundingBox7);
+    // up
+    if (keyCode == 38) {
+
+         if(collision==false){
+         if(elements.position.y<4.6){
+				  elements.position.y += 2.3;
+			}
+        }
+
+        else if(collision1==false){
+            if(elements1.position.y<4.6){
+				  elements1.position.y += 2.3;
+			}
+        }
+        else if(collision2==false){
+            if(elements2.position.y<4.6){
+				  elements2.position.y += 2.3;
+			}
+        }
+				else if(collision3==false){
+            if(elements3.position.y<4.6){
+				  elements3.position.y += 2.3;
+			}
+        }
+				else if(collision4==false){
+            if(elements4.position.y<4.6){
+				  elements4.position.y += 2.3;
+			}
+        }
+				else if(collision5==false){
+            if(elements5.position.y<4.6){
+				  elements5.position.y += 2.3;
+			}
+        }
+		else if(collision6==false){
+            if(elements6.position.y<4.6){
+				  elements6.position.y += 2.3;
+			}
+        }
+        else if(collision7==false){
+            if(elements7.position.y<4.6){
+				  elements7.position.y += 2.3;
+			}
+        }
+
+    }  // down
+    else if (keyCode == 40) {
+
+        if(collision==false){
+			if(elements.position.y>0){
+				  elements.position.y -= 2.3;
+
+			}
+        }
+        else if(collision1==false){
+            if(elements1.position.y>0){
+				  elements1.position.y -= 2.3;
+
+			}
+        }
+        else if(collision2==false){
+            if(elements2.position.y>0){
+				  elements2.position.y -= 2.3;
+
+			}
+        }
+				else if(collision3==false){
+            if(elements3.position.y>-2.3){
+				  elements3.position.y -= 2.3;
+
+			}
+        }
+				else if(collision4==false){
+            if(elements4.position.y>0){
+				  elements4.position.y -= 2.3;
+
+			}
+        }
+				else if(collision5==false){
+            if(elements5.position.y>0){
+				  elements5.position.y -= 2.3;
+
+			}
+        }
+		else if(collision6==false){
+            if(elements6.position.y>0){
+				  elements6.position.y -= 2.3;
+
+			}
+        }
+        else if(collision7==false){
+            if(elements7.position.y>0){
+				  elements7.position.y -= 2.3;
+
+			}
+        }
+
+    }
+     // left
+		else if (keyCode == 37) {
+
+        if(collision==false){
+        if(elements.position.x<4.6){
+				  elements.position.x += 2.3;
+			}
+        }
+        else if(collision1==false){
+            if(elements1.position.x<4.6){
+				  elements1.position.x += 2.3;
+			}
+
+    }
+    else if(collision2==false){
+        if(elements2.position.x<2.3){
+				  elements2.position.x += 2.3;
+			}
+		 }
+			else if(collision3==false){
+					if(elements3.position.x<2.3){
+						elements3.position.x += 2.3;
+				}
+			}
+			else if(collision4==false){
+					if(elements4.position.x<2.3){
+						elements4.position.x += 2.3;
+				}
+			}
+			else if(collision5==false){
+					if(elements5.position.x<4.6){
+						elements5.position.x += 2.3;
+				}
+			}
+			else if(collision6==false){
+					if(elements6.position.x<4.6){
+						elements6.position.x += 2.3;
+				}
+			}
+			else if(collision7==false){
+					if(elements7.position.x<4.6){
+						elements7.position.x += 2.3;
+				}
+			}
+}
+
+    // right
+else if (keyCode == 39) {
+
+        if(collision==false){
+        if(elements.position.x>-2.3){
+				  elements.position.x -= 2.3;
+			} }
+            else if(collision1==false){
+                if(elements1.position.x>-4.6){
+				  elements1.position.x -= 2.3;
+			}
+
+        }
+        else if(collision2==false){
+            if(elements2.position.x>-4.6){
+				  elements2.position.x -= 2.3;
+			}
+		}
+		else if(collision3==false){
+				if(elements3.position.x>-4.6){
+			elements3.position.x -= 2.3;
+	}
+}
+else if(collision4==false){
+		if(elements4.position.x>-4.6){
+	elements4.position.x -= 2.3;
+}
+}
+else if(collision5==false){
+		if(elements5.position.x>-2.3){
+	elements5.position.x -= 2.3;
+}
+}
+
+else if(collision6==false){
+		if(elements6.position.x>-2.3){
+	elements6.position.x -= 2.3;
+}
+}
+else if(collision7==false){
+		if(elements7.position.x>-2.3){
+	elements7.position.x -= 2.3;
+}
+}
+
+    }
+    // space
+	else if (keyCode == 32) {
+
+        if(collision==false){
+   if(elements.position.z<39.40000000000056)
+		{
+     elements.position.z+=1;
+
+    }
+}
+    else if(collision1==false){
+        if(elements1.position.z<39.40000000000056)
+		{
+     elements1.position.z+=1;
+
+    }
+}
+else if(collision2==false){
+    if(elements2.position.z<39.40000000000056)
+		{
+     elements2.position.z+=1;
+
+    }
+}
+else if(collision3==false){
+    if(elements3.position.z<39.40000000000056)
+		{
+     elements3.position.z+=1;
+
+    }
+}
+else if(collision4==false){
+    if(elements4.position.z<39.40000000000056)
+		{
+     elements4.position.z+=1;
+
+    }
+}
+else if(collision5==false){
+		if(elements5.position.z<39.40000000000056)
+		{
+		 elements5.position.z+=1;
+
+		}
+}
+else if(collision6==false){
+		if(elements6.position.z<39.40000000000056)
+		{
+		 elements6.position.z+=1;
+
+		}
+}
+else if(collision7==false){
+		if(elements7.position.z<39.40000000000056)
+		{
+		 elements7.position.z+=1;
+
+		}
+}
+}
+//D key
+else if (keyCode == 65) {
+
+        camera.position.x += 1;
+
+    }
+		//W key
+		else if (keyCode == 87) {
+
+       camera.position.y += 1;
+
+    }
+		//A key
+		else if (keyCode == 68) {
+
+        camera.position.x -= 1;
+
+    }
+		//S key
+		else if (keyCode == 83) {
+
+        camera.position.y -= 1;
+
+
+}
+
+else if (keyCode == 81) {
+
+		camera.position.z += 1;
+
+
+}
+
+
+  	renderer.render(scene,camera);
+		console.log("elements position y:"+ elements.position.y);
+		console.log("elements position x:"+ elements.position.x);
+		console.log("elements position z:"+ elements.position.z);
+
+};
+
+
+//scaling
+var counter=1970;
+var resizeCube =function()
+{
+
+	requestAnimationFrame(resizeCube);
+		//console.log("position"+allElements.children[j].position.z);
+		boundingBox = new THREE.Box3().setFromObject(elements);
+		floorBoundingBox = new THREE.Box3().setFromObject(floor3);
+		var collision = boundingBox.intersectsBox(floorBoundingBox);
+		console.log(collision);
+if(collision == false){
+  //  if(counter>0)
+		//{
+		//elements.scale.x-=0.002;
+		elements.position.z+=0.02;
+
+		//elements.scale.z-=0.01;
+		//counter--;
+	  }
+		else if (collision == true ) {
+
+            //Object.freeze(elements);
+           // elements.dispose();
+
+            boundingBox1 = new THREE.Box3().setFromObject(elements1);
+		floorBoundingBox1= new THREE.Box3().setFromObject(floor3);
+            var collision1 = boundingBox1.intersectsBox(floorBoundingBox1);
+            scene.add(elements1);
+            if(collision1 == false ){
+            elements1.position.z+=0.02; }
+            else if (collision1 == true){
+                boundingBox2 = new THREE.Box3().setFromObject(elements2);
+		floorBoundingBox2= new THREE.Box3().setFromObject(floor3);
+            var collision2 = boundingBox2.intersectsBox(floorBoundingBox2);
+                scene.add(elements2);
+                if(collision2 == false ){
+                    elements2.position.z+=0.02;
+                }
+                else if(collision2==true){
+                    boundingBox3 = new THREE.Box3().setFromObject(elements3);
+		        floorBoundingBox3= new THREE.Box3().setFromObject(floor3);
+            var collision3 = boundingBox3.intersectsBox(floorBoundingBox3);
+                scene.add(elements3);
+
+								if(collision3 == false ){
+										elements3.position.z+=0.02;
+								}
+								else if(collision3==true){
+                    boundingBox4 = new THREE.Box3().setFromObject(elements4);
+		        floorBoundingBox4= new THREE.Box3().setFromObject(floor3);
+            var collision4 = boundingBox4.intersectsBox(floorBoundingBox4);
+                scene.add(elements4);
+
+								if(collision4 == false ){
+										elements4.position.z+=0.02;
+								}
+								else if(collision4==true){
+                    boundingBox5 = new THREE.Box3().setFromObject(elements5);
+		        floorBoundingBox5= new THREE.Box3().setFromObject(floor3);
+            var collision5 = boundingBox5.intersectsBox(floorBoundingBox5);
+                scene.add(elements5);
+
+								if(collision5 == false ){
+										elements5.position.z+=0.02;
+								}
+
+             else if(collision5==true){
+                    boundingBox6 = new THREE.Box3().setFromObject(elements6);
+		        floorBoundingBox6= new THREE.Box3().setFromObject(elements);
+            var collision6 = boundingBox6.intersectsBox(floorBoundingBox6);
+                scene.add(elements6);
+
+								if(collision6 == false ){
+										elements6.position.z+=0.02;
+								}
+								else if(collision6==true){
+                    boundingBox7 = new THREE.Box3().setFromObject(elements7);
+		        floorBoundingBox7= new THREE.Box3().setFromObject(elements);
+            var collision7 = boundingBox7.intersectsBox(floorBoundingBox7);
+                scene.add(elements7);
+
+								if(collision7 == false ){
+										elements7.position.z+=0.02;
+								}
+								else if(collision7==true)
+								{
+									alert("GAME OVER");
+								}
+}
+}
+								}
+}
+}
+
+            }
+
+         /*   for(i=0;i<100;i++){
+                var arr=[(elements1),(elements2),(elements3)];
+                boundingBox1 = new THREE.Box3().setFromObject(arr[i]);
+		floorBoundingBox1= new THREE.Box3().setFromObject(floor3);
+            var collision1 = boundingBox1.intersectsBox(floorBoundingBox1);
+            scene.add(arr[i]);
+            if(collision1 == false ){
+            arr[i].position.z+=0.02; }
+            else if (collision1 == true){
+                scene.add(arr[i]+1);
+            }
+            }  */
+
+        /*    var arr=[elements1,elements2,elements3];
+            for(i=0;i<100;i++)
+          {
+			scene.add(arr[i]);
+          } */
+		}
+
+	// boundingBox = new THREE.Box3().setFromObject(elements);
+	// floorBoundingBox = new THREE.Box3().setFromObject(floor3);
+	// var collision = boundingBox.intersectsBox(floorBoundingBox);
+	// console.log("collision is= "+collision);
+	//
+	// j+=1;
+	//
+	// console.log("position new"+allElements.children[j].position.z);
+	//scene.add(allElements.children[j]);
+
+
+	renderer.render(scene,camera);
+
+};
+
+init();
+
+</script>
